@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Valentine</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #f8cdda, #f5a9c7);
+            font-family: 'Georgia', serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #3a1f2d;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            max-width: 420px;
+            transition: all 0.6s ease;
+        }
+
+        h1 {
+            font-weight: normal;
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background: #c44569;
+            border: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #a23454;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .final {
+            font-size: 22px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="music" loop>
+        <source src="bemybaby.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="card" id="card">
+        <h1 id="text">
+            I know we’re miles apart,<br>
+            but some things don’t need distance.
+        </h1>
+
+        <button id="btn">Dabayen isko cutuuu</button>
+    </div>
+
+    <script>
+        const button = document.getElementById("btn");
+        const text = document.getElementById("text");
+        const music = document.getElementById("music");
+
+        let step = 0;
+
+        button.addEventListener("click", () => {
+            if (step === 0) {
+                music.volume = 0.3;
+                music.play();
+
+                text.innerHTML = "So jaaannnnn...<br>will you be my Valentine? ❤️";
+                button.innerText = "Yes";
+                step++;
+            } else {
+                document.getElementById("card").innerHTML = `
+                    <div class="final">
+                        February 14th.<br>
+                        You and me.
+                    </div>
+                `;
+            }
+        });
+    </script>
+
+</body>
+</html>
